@@ -4,7 +4,7 @@ author:              "Adam Wasiak"
 maintainer:          "adamwasiak55@gmail.com"
 copyright:           "2026 Adam Wasiak"
 
-description:         "lambdaTrader - a terminal chatbot that parses natural language into structured requests, backed by persistent memory and live stock market data via a third-party finance API."
+description:         "LambdaTrader - a terminal chatbot that parses natural language into structured requests, backed by persistent memory and live stock market data via a third-party finance API."
 
 
 language:    GHC2021
@@ -35,7 +35,7 @@ library:
   source-dirs: src
 
 executables:
-  lambdaTrader-tui:
+  LambdaTrader-tui:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -43,18 +43,18 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - lambdaTrader
+    - LambdaTrader
     when:        
     - condition: false        
-      other-modules: Paths_lambdaTrader
+      other-modules: Paths_LambdaTrader
 
 tests:
-  lambdaTrader-test:
+  LambdaTrader-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options: []
     dependencies:
-    - lambdaTrader
+    - LambdaTrader
     - tasty
     - tasty-hunit
     - tasty-quickcheck
@@ -66,4 +66,4 @@ tests:
     - text
     when:        
     - condition: false        
-      other-modules: Paths_lambdaTrader
+      other-modules: Paths_LambdaTrader
