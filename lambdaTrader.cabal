@@ -6,7 +6,7 @@ cabal-version: 1.12
 
 name:           LambdaTrader
 version:        0.1.0.0
-description:    lambdaTrader - a terminal chatbot that parses natural language into structured requests, backed by persistent memory and live stock market data via a third-party finance API.
+description:    LambdaTrader - a terminal chatbot that parses natural language into structured requests, backed by persistent memory and live stock market data via a third-party finance API.
 author:         Adam Wasiak
 maintainer:     adamwasiak55@gmail.com
 copyright:      2026 Adam Wasiak
@@ -45,10 +45,8 @@ library
     , time
   default-language: GHC2021
 
-executable lambdaTrader-tui
+executable LambdaTrader-tui
   main-is: Main.hs
-  other-modules:
-      Paths_LambdaTrader
   hs-source-dirs:
       app
   default-extensions:
@@ -72,11 +70,9 @@ executable lambdaTrader-tui
     , time
   default-language: GHC2021
 
-test-suite lambdaTrader-test
+test-suite LambdaTrader-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
-  other-modules:
-      Paths_LambdaTrader
   hs-source-dirs:
       test
   default-extensions:
@@ -85,7 +81,8 @@ test-suite lambdaTrader-test
       RecordWildCards
       LambdaCase
   build-depends:
-      QuickCheck
+      LambdaTrader
+    , QuickCheck
     , aeson
     , ansi-terminal
     , base >=4.7 && <5
@@ -93,7 +90,6 @@ test-suite lambdaTrader-test
     , containers
     , directory
     , filepath
-    , lambdaTrader
     , megaparsec
     , mtl
     , regex-tdfa
