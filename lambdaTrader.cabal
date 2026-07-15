@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           lambdaTrader
+name:           LambdaTrader
 version:        0.1.0.0
 description:    lambdaTrader - a terminal chatbot that parses natural language into structured requests, backed by persistent memory and live stock market data via a third-party finance API.
 author:         Adam Wasiak
@@ -23,7 +23,7 @@ library
       LambdaTrader.Responder
       LambdaTrader.TUI
   other-modules:
-      Paths_lambdaTrader
+      Paths_LambdaTrader
   hs-source-dirs:
       src
   default-extensions:
@@ -47,6 +47,8 @@ library
 
 executable lambdaTrader-tui
   main-is: Main.hs
+  other-modules:
+      Paths_LambdaTrader
   hs-source-dirs:
       app
   default-extensions:
@@ -73,6 +75,8 @@ executable lambdaTrader-tui
 test-suite lambdaTrader-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
+  other-modules:
+      Paths_LambdaTrader
   hs-source-dirs:
       test
   default-extensions:
