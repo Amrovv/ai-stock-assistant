@@ -1,10 +1,10 @@
 cradle:
   stack:
     - path: "./src"
-      component: "lgpt:lib"
+      component: "LambdaTrader:lib"
 
     - path: "./app"
-      component: "lgpt:exe:lgpt-tui"
+      component: "LambdaTrader:exe:LambdaTrader-tui"
 
     - path: "./test"
-      component: "lgpt:test:lgpt-test"
+      component: "LambdaTrader:test:LambdaTrader-test"

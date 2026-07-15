@@ -4,26 +4,26 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 
-name:           lgpt
+name:           lambdaTrader
 version:        0.1.0.0
-description:    The Lightly Generalised Parsing Task, a chatbot that can respond to requests in the terminal. Used as coursework for CS141 Functional Programming at the University of Warwick.
-author:         Alex Dixon
-maintainer:     alexander.dixon@warwick.ac.uk
-copyright:      2026 Alex Dixon
+description:    lambdaTrader - a terminal chatbot that parses natural language into structured requests, backed by persistent memory and live stock market data via a third-party finance API.
+author:         Adam Wasiak
+maintainer:     adamwasiak55@gmail.com
+copyright:      2026 Adam Wasiak
 build-type:     Simple
 
 library
   exposed-modules:
-      LGPT.API
-      LGPT.Helpers
-      LGPT.Memory
-      LGPT.Numbers
-      LGPT.Parser
-      LGPT.Request
-      LGPT.Responder
-      LGPT.TUI
+      LambdaTrader.API
+      LambdaTrader.Helpers
+      LambdaTrader.Memory
+      LambdaTrader.Numbers
+      LambdaTrader.Parser
+      LambdaTrader.Request
+      LambdaTrader.Responder
+      LambdaTrader.TUI
   other-modules:
-      Paths_lgpt
+      Paths_lambdaTrader
   hs-source-dirs:
       src
   default-extensions:
@@ -45,7 +45,7 @@ library
     , time
   default-language: GHC2021
 
-executable lgpt-tui
+executable lambdaTrader-tui
   main-is: Main.hs
   hs-source-dirs:
       app
@@ -63,14 +63,14 @@ executable lgpt-tui
     , containers
     , directory
     , filepath
-    , lgpt
+    , lambdaTrader
     , megaparsec
     , mtl
     , request
     , time
   default-language: GHC2021
 
-test-suite lgpt-test
+test-suite lambdaTrader-test
   type: exitcode-stdio-1.0
   main-is: Spec.hs
   hs-source-dirs:
@@ -89,7 +89,7 @@ test-suite lgpt-test
     , containers
     , directory
     , filepath
-    , lgpt
+    , lambdaTrader
     , megaparsec
     , mtl
     , regex-tdfa

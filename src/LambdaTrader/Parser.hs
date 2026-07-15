@@ -1,4 +1,4 @@
-module LGPT.Parser where
+module LambdaTrader.Parser where
 
 import Data.Char (isPunctuation, isSpace)
 
@@ -6,9 +6,9 @@ import Text.Megaparsec
 import Text.Megaparsec.Char
 import Text.Megaparsec.Char.Lexer (decimal)
 
-import LGPT.Helpers  (Parser)
-import LGPT.Numbers  (parseLonghand)
-import LGPT.Request
+import LambdaTrader.Helpers  (Parser)
+import LambdaTrader.Numbers  (parseLonghand)
+import LambdaTrader.Request
 
 
 {-
@@ -101,7 +101,7 @@ parseExpr = do
   operators <- many parseOp
   pure $ foldl (\expr op -> op expr) num operators
 
--- Parses a number using the longhand parser from LGPT.Numbers.
+-- Parses a number using the longhand parser from LambdaTrader.Numbers.
 parseNum :: Parser Expr
 parseNum = Number <$> parseLonghand
 

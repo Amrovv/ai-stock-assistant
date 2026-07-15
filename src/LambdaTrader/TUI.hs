@@ -1,4 +1,4 @@
-module LGPT.TUI where
+module LambdaTrader.TUI where
 
 {-
 This file is the main entry point to your coursework.
@@ -8,10 +8,10 @@ You can create or modify any files in src/ as much as you like.
 import Control.Monad       (void, forever)
 import Control.Monad.State (StateT, lift, runStateT)
 
-import LGPT.Helpers        (prompt)
-import LGPT.Memory         (Memory, emptyMemory, loadMemory, saveMemory)
-import LGPT.Parser         (readRequest)
-import LGPT.Responder      (respondTo)
+import LambdaTrader.Helpers        (prompt)
+import LambdaTrader.Memory         (Memory, emptyMemory, loadMemory, saveMemory)
+import LambdaTrader.Parser         (readRequest)
+import LambdaTrader.Responder      (respondTo)
 
 {-
   Entry point for the chatbot.

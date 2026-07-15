@@ -1,6 +1,6 @@
-module LGPT.Numbers where
+module LambdaTrader.Numbers where
 
-import LGPT.Helpers
+import LambdaTrader.Helpers
 import Control.Applicative
 import Text.Megaparsec
 import Text.Megaparsec.Char

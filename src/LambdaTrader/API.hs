@@ -2,7 +2,7 @@
 {-# LANGUAGE DeriveGeneric #-}
 -- Deriving Generic allows automatic JSON encoding/decoding with Aeson
 
-module LGPT.API where
+module LambdaTrader.API where
 
 import Network.HTTP.Request
 import Data.Aeson              (FromJSON(..), ToJSON, eitherDecode, withObject, (.:))

@@ -1,4 +1,4 @@
-module LGPT.Helpers where
+module LambdaTrader.Helpers where
 
 import Text.Megaparsec
 import Data.Void (Void)

@@ -37,10 +37,10 @@ import Data.List (dropWhileEnd)
 import Data.List.Split (splitOn)
 
 -- Modules from this project
-import LGPT.TUI qualified as TUI
-import LGPT.Numbers
+import LambdaTrader.TUI qualified as TUI
+import LambdaTrader.Numbers
 import qualified Data.Text as T
-import LGPT.Helpers (prompt)
+import LambdaTrader.Helpers (prompt)
 
 
 

@@ -1,4 +1,4 @@
-module LGPT.Request where
+module LambdaTrader.Request where
 
 {-
   Contains all data types shared between Parser.hs and Responder.hs.

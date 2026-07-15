@@ -1,4 +1,4 @@
-module LGPT.Responder where
+module LambdaTrader.Responder where
 
 
 import Control.Monad       (foldM)
@@ -11,11 +11,11 @@ import Data.Function       (on)
 import qualified Data.Map  as M
 import Text.Printf         (printf)
 
-import LGPT.Request
-import LGPT.Memory
-import LGPT.API
-import LGPT.Numbers        (printLonghand)
-import LGPT.Parser         (readRequest)
+import LambdaTrader.Request
+import LambdaTrader.Memory
+import LambdaTrader.API
+import LambdaTrader.Numbers        (printLonghand)
+import LambdaTrader.Parser         (readRequest)
 
 {- 
   This module handles the chatbot's responses to parsed user Requests.

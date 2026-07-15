@@ -1,10 +1,10 @@
-name:                lgpt
+name:                lambdaTrader
 version:             0.1.0.0
-author:              "Alex Dixon"
-maintainer:          "alexander.dixon@warwick.ac.uk"
-copyright:           "2026 Alex Dixon"
+author:              "Adam Wasiak"
+maintainer:          "adamwasiak55@gmail.com"
+copyright:           "2026 Adam Wasiak"
 
-description:         "The Lightly Generalised Parsing Task, a chatbot that can respond to requests in the terminal. Used as coursework for CS141 Functional Programming at the University of Warwick."
+description:         "lambdaTrader - a terminal chatbot that parses natural language into structured requests, backed by persistent memory and live stock market data via a third-party finance API."
 
 
 language:    GHC2021
@@ -35,7 +35,7 @@ library:
   source-dirs: src
 
 executables:
-  lgpt-tui:
+  lambdaTrader-tui:
     main:                Main.hs
     source-dirs:         app
     ghc-options:
@@ -43,18 +43,18 @@ executables:
     - -rtsopts
     - -with-rtsopts=-N
     dependencies:
-    - lgpt
+    - lambdaTrader
     when:        
     - condition: false        
-      other-modules: Paths_lgpt
+      other-modules: Paths_lambdaTrader
 
 tests:
-  lgpt-test:
+  lambdaTrader-test:
     main:                Spec.hs
     source-dirs:         test
     ghc-options: []
     dependencies:
-    - lgpt
+    - lambdaTrader
     - tasty
     - tasty-hunit
     - tasty-quickcheck
@@ -66,4 +66,4 @@ tests:
     - text
     when:        
     - condition: false        
-      other-modules: Paths_lgpt
+      other-modules: Paths_lambdaTrader

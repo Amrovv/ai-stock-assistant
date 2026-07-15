@@ -1,7 +1,7 @@
 module Main where
 
-import LGPT.Helpers
-import LGPT.TUI qualified as TUI
+import LambdaTrader.Helpers
+import LambdaTrader.TUI qualified as TUI
 
 
 {- | This is what gets run when you run the program. 

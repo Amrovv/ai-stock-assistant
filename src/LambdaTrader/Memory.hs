@@ -2,7 +2,7 @@
 -- Deriving Generic allows automatic JSON encoding/decoding with aeson
 
 
-module LGPT.Memory where
+module LambdaTrader.Memory where
 
 import System.Directory            (doesFileExist, createDirectoryIfMissing)
 import System.FilePath             (takeDirectory)
@@ -11,7 +11,7 @@ import qualified Data.ByteString.Lazy as BL
 import GHC.Generics                (Generic)
 import qualified Data.Map          as M
 
-import LGPT.API                    (Article)
+import LambdaTrader.API                    (Article)
 
 {-
   Defines the Memory type used as the chatbot's state throughout a session.
