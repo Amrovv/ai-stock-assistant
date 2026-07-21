@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: haskell-actions/setup@v2
+        id: setup
+        with:
+          enable-stack: true
+          stack-no-global: true
+
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.stack
+            .stack-work
+          key: ${{ runner.os }}-stack-${{ hashFiles('stack.yaml.lock', '*.cabal') }}
+          restore-keys: |
+            ${{ runner.os }}-stack-
+
+      - name: Build
+        run: stack build --test --no-run-tests
+
+      - name: Test
+        run: stack test
