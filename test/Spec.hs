@@ -1,11 +1,10 @@
 {-
-You aren't required to edit this file, but do feel free to take a look. You 
-could add some tests, if you think of new ones and are able to figure out the
-format that they should be specified in.
+End-to-end tests: feed lines of input to the REPL and check the printed
+output matches an expected regex.
 
-Tasty is the testing library that is used to specify tests.
-The backends "tasty-hunit" and "tasty-quickcheck" specify the way that unit 
-tests and property tests (respectively) are written.
+Tasty is the testing library used to specify tests. The backends
+"tasty-hunit" and "tasty-quickcheck" specify how unit tests and property
+tests (respectively) are written.
 -}
 module Main where
 
@@ -48,8 +47,8 @@ main :: IO ()
 main = do
   clearScreen
 
-  [o1, o2, o3, o4, o6a, o6b, o6c, o7a, o7b, o8a, o8b] <- mapM 
-    getλGPTResults
+  [o1, o2, o3, o4, o6a, o6b, o6c, o7a, o7b, o8a, o8b] <- mapM
+    getREPLResult
     [ ["Hello"]
     , ["What day is it?"]
     , ["What day is it tomorrow?"]
@@ -65,40 +64,40 @@ main = do
 
   let 
     tests = testGroup "Tests"
-      [ 
+      [
         -- longformNumberTests
         -- , longformPropertyTest
-        testGroup "Part Zero" [
-          testCase "Exercise 1: Hello" $ do
+        testGroup "Greeting" [
+          testCase "Hello" $ do
             checkExercise o1 ["Hi there!"]
         ]
-      , testGroup "Part One" [
-          testCase "Exercise 2: What day is it?" $
+      , testGroup "Dates" [
+          testCase "What day is it?" $
             checkExercise o2 ["Today is [MTWFS][a-z]+\\."]
-        , testCase "Exercise 3: What day is it tomorrow?" $
+        , testCase "What day is it tomorrow?" $
             checkExercise o3 ["Tomorrow is [MTWFS][a-z]+\\."]
-        , testCase "Exercise 4: How long ago was 2026-02-14?" $
+        , testCase "How long ago was 2026-02-14?" $
             checkExercise o4 ["2026-02-14 was [0-9]+ days ago\\."]
         ]
-      , testGroup "Part Two" [
-          testCase "Exercise 6: What is two plus three times four?" $
+      , testGroup "Arithmetic" [
+          testCase "What is two plus three times four?" $
             checkExercise o6a ["The answer is twenty."]
-        , testCase "Exercise 6: What is one hundred minus fifty?" $
+        , testCase "What is one hundred minus fifty?" $
             checkExercise o6b ["The answer is fifty."]
-        , testCase "Exercise 6: What is ten times ten plus ten?" $
+        , testCase "What is ten times ten plus ten?" $
             checkExercise o6c ["The answer is one hundred and ten."]
         ]
-      , testGroup "Part Three" [
-          testCase "Exercise 7: Remember that the sky is blue. / Tell me about the sky." $
-            checkExercise o7a 
+      , testGroup "Memory" [
+          testCase "Remember that the sky is blue. / Tell me about the sky." $
+            checkExercise o7a
             ["Okay\\.","Sure - the sky is blue\\."]
-        , testCase "Exercise 7: Tell me about computers." $
-            checkExercise o7b 
+        , testCase "Tell me about computers." $
+            checkExercise o7b
               ["Sorry, I don't know anything about computers\\."]
-        , testCase "Exercise 8: What is that plus two?" $
-            checkExercise o8a 
+        , testCase "What is that plus two? (before anything evaluated)" $
+            checkExercise o8a
               ["I haven't evaluated anything yet\\."]
-        , testCase "Exercise 8: What is two plus three? / What is that times that?" $
+        , testCase "What is two plus three? / What is that times that?" $
             checkExercise o8b
               ["The answer is five\\.","The answer is twenty-five\\."]
         ]
@@ -107,12 +106,12 @@ main = do
   defaultMainWithIngredients [ listingTests, consoleTestReporterQuiet ] tests
 
 
--- | Get the output of running λGPT with a given list of input lines.
-getλGPTResults :: [String] -> IO String
-getλGPTResults input = runWithInput TUI.runREPL $ unlines input
+-- | Get the output of running the REPL with a given list of input lines.
+getREPLResult :: [String] -> IO String
+getREPLResult input = runWithInput TUI.runREPL $ unlines input
 
 
--- | Check that λGPT gives back output matching a given regular expression, for a given input.
+-- | Check that the REPL gives back output matching a given regular expression, for a given input.
 checkExercise :: String -> [String] -> IO ()
 checkExercise output expectedRegexes = do
   forM_ expectedRegexes $ \expectedRegex -> do
@@ -126,8 +125,7 @@ checkExercise output expectedRegexes = do
 
 
 --------------------------------------------------------------------------------
--- Longhand number parsing tests (these were for my benefit but you're)
--- welcome to read them and see how it works :)
+-- Longhand number parsing tests
 
 longformNumberTests :: TestTree
 longformNumberTests = testGroup "Longform number tests"
@@ -187,7 +185,7 @@ testPairs =
 
 
 --------------------------------------------------------------------------------
--- Some helpers to make test results more readable (feel free to ignore these)
+-- Helpers to make test results more readable
 
 -- | Run the test reporter. 
 -- Do not add any information about how to rerun failed tests.

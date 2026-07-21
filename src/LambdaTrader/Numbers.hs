@@ -6,11 +6,10 @@ import Text.Megaparsec
 import Text.Megaparsec.Char
 
 --------------------------------------------------------------------------------
-{- | Print an integer in longhand form. 
- 
-    You don't need to touch this, but feel free to read it and try to work out what it's doing :)
+{- | Print an integer in longhand form (e.g. 101 -> "one hundred and one").
 
-    You can open `stack repl` and try out `printLonghand` on some numbers to see how it works. Examples are also given in test/Spec.hs.
+    Open `stack repl` and try `printLonghand` on some numbers to see how it
+    works. More examples are in test/Spec.hs.
 -}
 printLonghand :: Int -> String
 printLonghand n
@@ -39,11 +38,8 @@ printLonghand n
   | otherwise    = "a negative number"
 
 --------------------------------------------------------------------------------
-{- | Parse an integer in longhand form. 
- 
-    You don't need to touch this, but feel free to read it and try to work out what it's doing :)
-
-    This parser is a lot more complicated than the ones you need to write.
+{- | Parse an integer written out in longhand form (the inverse of
+    `printLonghand`).
 -}
 parseLonghand :: Parser Int
 parseLonghand = choice 

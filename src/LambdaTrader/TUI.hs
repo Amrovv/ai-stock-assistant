@@ -1,8 +1,7 @@
 module LambdaTrader.TUI where
 
 {-
-This file is the main entry point to your coursework.
-You can create or modify any files in src/ as much as you like.
+The REPL: reads a line, parses it, dispatches it to the responder, forever.
 -}
 
 import Control.Monad       (void, forever)

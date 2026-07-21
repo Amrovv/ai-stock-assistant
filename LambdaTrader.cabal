@@ -10,6 +10,8 @@ description:    LambdaTrader - a terminal chatbot that parses natural language i
 author:         Adam Wasiak
 maintainer:     adamwasiak55@gmail.com
 copyright:      2026 Adam Wasiak
+license:        MIT
+license-file:   LICENSE
 build-type:     Simple
 
 library
